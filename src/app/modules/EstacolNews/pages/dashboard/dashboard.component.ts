@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import * as auth from 'firebase/auth';
+import { AuthService } from '../../services/auth/auth.service';
 @Component({
   selector: 'sofkaU-dashboard',
   templateUrl: './dashboard.component.html',
@@ -7,4 +8,20 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
 
+  routerTask: string[];
+
+  constructor(private readonly auth$: AuthService) {
+
+    this.routerTask = ['../principal'];
+
+
+   }
+
+
+
+  logout(): void {
+
+    this.auth$.SignOut();
+
+  }
 }

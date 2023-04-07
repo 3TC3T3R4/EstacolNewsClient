@@ -22,7 +22,7 @@ const redirectLoggedInToDashboard = () => redirectLoggedInTo(['EstacolNews/dashb
 const routes : Routes = [
 
   {
-    path: '', //localhost:4200/calendar-todo-list
+    path: '', //localhost:4200/
     component: LoginComponent,
     canActivate: [AngularFireAuthGuard],
     data:{authGuardPipe: redirectLoggedInToDashboard}
@@ -34,7 +34,7 @@ const routes : Routes = [
 
   },
   {
-    path: 'EstacolNews/dashboard', //localhost:4200/calendar-todo-list
+    path: 'EstacolNews/dashboard', //localhost:4200/EstacolNews
     component: DashboardComponent,
     canActivate: [AngularFireAuthGuard],
     data:{authGuardPipe: redirectUnauthorizedToLogin}
