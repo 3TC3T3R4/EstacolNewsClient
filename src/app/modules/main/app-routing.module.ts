@@ -5,7 +5,7 @@ const routes: Routes = [
 
   {
     //carga perezosa
-    path: '', //localhost 4200/estacolnews
+    path: '', //localhost 4200/EstacolNews
     loadChildren: () => import('../EstacolNews/estacol-news.module').
     then(m => m.EstacolNewsModule)
 

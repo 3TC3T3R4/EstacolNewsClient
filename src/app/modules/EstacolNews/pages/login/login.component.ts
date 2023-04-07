@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'sofkaU-login',
@@ -6,5 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+
+
+  constructor(private readonly auth$: AuthService) {}
+
+
+
+  authVariable():void{
+
+
+    this.auth$.GoogleAuth();
+
+
+  }
+
 
 }
