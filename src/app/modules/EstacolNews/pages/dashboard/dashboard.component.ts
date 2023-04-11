@@ -12,10 +12,9 @@ export class DashboardComponent {
 
   constructor(private readonly auth$: AuthService) {
 
-    this.routerTask = ['../principal'];
+    this.routerTask = ['../editor-side/main'];
 
-
-   }
+  }
 
 
 
