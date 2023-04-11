@@ -1,24 +1,22 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import * as auth from 'firebase/auth';
-import { HttpClient} from '@angular/common/http';
-import { TaskService } from '../task.service';
+import { ServicesService } from '../../services.service';
 import { UserModel } from '../../models/user.model';
+import * as auth from 'firebase/auth';
+import { EditorModel } from '../../../Editor/models/editor.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-
-
-
+export class TaskService {
 
 
   constructor(private router: Router,
     private afAuth: AngularFireAuth,
     private  httClient: HttpClient,
-    private taskService: TaskService,
+    private taskService: ServicesService,
 
     ) { }
 
@@ -39,6 +37,8 @@ export class AuthService {
         this.router.navigate(['EstacolNews/dashboard']);
        console.log(result);
         localStorage.setItem('user', JSON.stringify(result.user?.email?.valueOf()));
+        localStorage.setItem('name', JSON.stringify(result.user?.displayName?.valueOf()));
+
         localStorage.setItem('uid', result.user?.uid?? '');
         result.user?.getIdToken().then((token =>localStorage.setItem('token', token)));
         localStorage.setItem('prov', JSON.stringify(result.user?.providerId));
@@ -52,11 +52,21 @@ export class AuthService {
 
         );
 
-        this.taskService.createTask(user,token).subscribe((response) => {
-          console.log('Datos enviados', response);
+        const editor = new EditorModel(
+
+          localStorage.getItem('uid') ?? '',
+          localStorage.getItem('prov') ?? '{}',
+          localStorage.getItem('prov') ?? ''
+
+        );
+
+        this.taskService.createUser(user,token).subscribe((response) => {
+          console.log('Datos enviados a mongo', response);
         });
 
-
+        this.taskService.createEditor(editor,token).subscribe((response) => {
+          console.log('Datos enviados a SQLServer', response);
+        });
 
       })
       .catch((error) => {
@@ -74,5 +84,3 @@ export class AuthService {
     });
   }
 }
-
-

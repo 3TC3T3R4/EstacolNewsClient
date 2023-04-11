@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../services/auth/auth.service';
 
+import { TaskService } from '../../../User/services/auth/task.service';
 @Component({
   selector: 'sofkaU-login',
   templateUrl: './login.component.html',
@@ -9,7 +9,7 @@ import { AuthService } from '../../services/auth/auth.service';
 export class LoginComponent {
 
 
-  constructor(private readonly auth$: AuthService) {}
+  constructor(private readonly auth$:TaskService) {}
 
 
 

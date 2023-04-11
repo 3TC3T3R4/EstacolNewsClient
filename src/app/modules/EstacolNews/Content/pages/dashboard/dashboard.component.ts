@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import * as auth from 'firebase/auth';
-import { AuthService } from '../../services/auth/auth.service';
+import { TaskService } from '../../../User/services/auth/task.service';
 @Component({
   selector: 'sofkaU-dashboard',
   templateUrl: './dashboard.component.html',
@@ -10,7 +10,7 @@ export class DashboardComponent {
 
   routerTask: string[];
 
-  constructor(private readonly auth$: AuthService) {
+  constructor(private readonly auth$: TaskService) {
 
     this.routerTask = ['../editor-side/main'];
 
