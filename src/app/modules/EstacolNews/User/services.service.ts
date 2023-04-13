@@ -67,6 +67,17 @@ export class ServicesService {
 
   }
 
+  GetAllOtherCase(): Observable<ContentModel[]> {
+
+    return this.httClient.get<ContentModel[]>('https://localhost:7267/api/Content');
+
+  }
+
+
+
+
+
+
   createPublication(publication: NewPublicationModel,token: string) : Observable<NewPublicationModel> {
 
     const httpOptions = {
@@ -93,8 +104,14 @@ export class ServicesService {
 
   }
 
-  updateArt(id: number, content: NewContentModel) : Observable<InewContent> {
-    return this.httClient.put<InewContent>('https://localhost:7267/api/Content?id='+ id, content);
+  updateArt(id: number, content: NewContentModel,token: string) : Observable<InewContent> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}` // Se utiliza el token que se recibe como argumento
+      })
+    };
+    return this.httClient.put<InewContent>('https://localhost:7267/api/Content?id='+ id, httpOptions);
   }
 
   getContentById(id: number,token: string) : Observable<NewContentModel> {
@@ -106,12 +123,37 @@ export class ServicesService {
       })
     };
 
-    return this.httClient.get<NewContentModel>('https://localhost:7267/api/Content/ByIdEditor?id='+ id, httpOptions);
+    return this.httClient.get<NewContentModel>('https://localhost:7267/api/Content/'+ id, httpOptions);
+
+  }
+
+  getContentByIdOtherCase(id: number,token: string) : Observable<ContentModel> {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}` // Se utiliza el token que se recibe como argumento
+      })
+    };
+
+    return this.httClient.get<ContentModel>('https://localhost:7267/api/Content/'+ id, httpOptions);
 
   }
 
 
+  //listo
+  deleteContent(id: number, token: string): Observable<IContent[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}` // Se utiliza el token que se recibe como argumento
+      })
+    };
 
+    return this.httClient.put<IContent[]>('https://localhost:7267/api/Content/' + id , httpOptions);
+
+
+  }
 
 
 

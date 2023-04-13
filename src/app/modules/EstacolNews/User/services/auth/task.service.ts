@@ -55,19 +55,15 @@ export class TaskService {
         );
 
 
-        // this.taskService.createUser(user,token).subscribe((response) => {
-        //   console.log('Datos enviados a mongo', response);
-        // });
-
-          console.log('localstorage', typeof(localStorage.getItem('uid')));
-          console.log('localstorage', localStorage.getItem('uid'));
-
-
-        this.taskService.getEditoyById(localStorage.getItem('uid') ?? '',token).subscribe((response) => {
-          console.log('Consultando byId', response);
-
-
+        this.taskService.createUser(user,token).subscribe((response) => {
+          console.log('Datos enviados a mongo', response);
         });
+
+          // console.log('localstorage', typeof(localStorage.getItem('uid')));
+          // console.log('localstorage', localStorage.getItem('uid'));
+          // this.taskService.getEditoyById(localStorage.getItem('uid') ?? '',token).subscribe((response) => {
+            //   console.log('Consultando byId', response);
+            // });
 
 // Obtener el editor actual
     this.taskService.getEditoyById(localStorage.getItem('uid') ?? '', token).subscribe((response) => {

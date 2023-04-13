@@ -1,19 +1,10 @@
-
+<!--
   <div class="text-center">
     <form id="frmFormReactive" (ngSubmit)="sendData()" [formGroup]="frmFormReactive"
       class="form-control mt-3 p-3 border-3 border-info text-start">
-      <div class="mb-3 mt-2 row">
-        <label for="Día" class="col-sm-2 col-form-label">Ingresa el numero de la Noticia o articulo que quieres modificar</label>
-        <div class="col-sm-10">
-          <input type="number" class="form-control" id="id" formControlName="id" name="id">
-              <div id="altoMensaje" *ngIf="frmFormReactive.get('id')?.hasError('required')
-         && frmFormReactive.get('id')?.touched">Campo requerido, ingresar por favor</div>
-          </div>
-        </div>
 
-
-        <div class="mb-3 row">
-          <label for="Título" class="col-sm-2 col-form-label">Título</label>
+      <div class="mb-3 row">
+          <label for="Título" class="col-sm-2 col-form-label">Titulo</label>
           <div class="col-sm-10">
             <input type="text" class="form-control" id="Título" placeholder="Hidroituango"  formControlName="title"
               name="title" required>
@@ -24,7 +15,7 @@
 
 
         <div class="mb-3 row">
-          <label for="Título" class="col-sm-2 col-form-label">Keywords</label>
+          <label for="key" class="col-sm-2 col-form-label">Keywords</label>
           <div class="col-sm-10">
             <input type="text" class="form-control" id="keywords" placeholder="hayazgo"  formControlName="keywords"
               name="keywords" required>
@@ -34,76 +25,56 @@
         </div>
 
         <div class="mb-3 row">
-          <label for="Título" class="col-sm-2 col-form-label">Finish_date</label>
+          <label for="finish" class="col-sm-2 col-form-label">Finish_date</label>
           <div class="col-sm-10">
-            <input type="data" class="form-control" id="finish_date"  formControlName="finish_date"
+            <input type="date" class="form-control" id="finish_date"  formControlName="finish_date"
               name="finish_date" required>
               <div id="altoMensaje" *ngIf="frmFormReactive.get('finish_date')?.hasError('required')
-           && frmFormReactive.get('finish_date')?.touched">Campo requerido, ingresar por favor</div>
+              && frmFormReactive.get('finish_date')?.touched">Campo requerido, ingresar por favor</div>
+            </div>
           </div>
-        </div>
+
 
         <div class="mb-3 row">
-          <label for="Título" class="col-sm-2 col-form-label">Publication_date</label>
+          <label for="publication" class="col-sm-2 col-form-label">Publication_date</label>
           <div class="col-sm-10">
-            <input type="data" class="form-control" id="publication_date"  formControlName="publication_date"
+            <input type="date" class="form-control" id="publication_date"  formControlName="publication_date"
               name="publication_date" required>
+
               <div id="altoMensaje" *ngIf="frmFormReactive.get('publication_date')?.hasError('required')
            && frmFormReactive.get('publication_date')?.touched">Campo requerido, ingresar por favor</div>
           </div>
         </div>
 
         <div class="mb-3 row">
-          <label for="Título" class="col-sm-2 col-form-label">Program_date</label>
+          <label for="program" class="col-sm-2 col-form-label">Program_date</label>
           <div class="col-sm-10">
-            <input type="data" class="form-control" id="finish_date"  formControlName="program_date"
+            <input type="date" class="form-control" id="program_date"  formControlName="program_date"
               name="program_date" required>
+
               <div id="altoMensaje" *ngIf="frmFormReactive.get('program_date')?.hasError('required')
            && frmFormReactive.get('program_date')?.touched">Campo requerido, ingresar por favor</div>
           </div>
         </div>
 
         <div class="mb-3 row">
-          <label for="Título" class="col-sm-2 col-form-label">Description</label>
+          <label for="description" class="col-sm-2 col-form-label">Description</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="description" placeholder="Alianza entre universidades"  formControlName="description"
-              name="keywords" required>
+            <textarea  class="form-control" id="description" placeholder="Alianza entre universidades"  formControlName="description"
+              name="keywords" required> </textarea>
               <div id="altoMensaje" *ngIf="frmFormReactive.get('description')?.hasError('required')
            && frmFormReactive.get('description')?.touched">Campo requerido, ingresar por favor</div>
           </div>
         </div>
 
-        <button type="button" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
         <button type="submit"  form="frmFormReactive" [disabled]="frmFormReactive.invalid" id="actualizar">Update Aritulo o noticia</button>
-         </form>
-        </div>
+        <button type="button" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
 
+      </form>
+    </div> -->
 
-        <div *ngFor="let data of listContent" class="col-3 mb-3">
-          <div class="card border border-1 border-success">
-            <div class="card-body">
-              <p id="valorTitle">TITULO DE LA Noticia:</p>
-                    <h6 class="card-title" id="valorTask">{{data.id_content}}</h6>
-                    <br>
-                    <h6 class="card-title" id="valorTask">{{data.title}}</h6>
-                    <br>
-                    <label id="valorTitle">Keywords: </label>
-                    <h6 class="card-title" id="valorTask">{{data.keywords}}</h6>
-                    <br>
-                    <label id="valorTitle">Finish_date: </label>
-                    <h6 class="card-title" id="valorTask">{{data.finish_date}}</h6>
-                    <br>
-                    <label id="valorTitle">Publication_date: </label>
-                    <h6 class="card-title" id="valorTask">{{data.publication_date}}</h6>
-                    <br>
-                    <label id="valorTitle">Program_date: </label>
-                    <h6 class="card-title" id="valorTask">{{data.program_date}}</h6>
-                    <br>
-                    <br>
-                    <label id="valorTitle">Description: </label>
-                    <h6 class="card-title" id="valorTask">{{data.description}}</h6>
-                    <br>
-                    <br>
-            </div>
-          </div>
-        </div>
+    <li *ngFor="let data of listContentTwo" class="col-3 mb-3">
+
+      <h6 class="card-title" id="valorTask">{{data.title}}</h6>
+
+    </li>
