@@ -6,6 +6,8 @@ import { ServicesService } from '../../services.service';
 import { UserModel } from '../../models/user.model';
 import * as auth from 'firebase/auth';
 import { EditorModel } from '../../../Editor/models/editor.model';
+import { map } from 'rxjs';
+import { NewEditorModel } from '../../../Editor/models/new-editor.model';
 
 @Injectable({
   providedIn: 'root'
@@ -52,21 +54,41 @@ export class TaskService {
 
         );
 
-        const editor = new EditorModel(
 
-          localStorage.getItem('uid') ?? '',
-          localStorage.getItem('prov') ?? '{}',
-          localStorage.getItem('prov') ?? ''
+        // this.taskService.createUser(user,token).subscribe((response) => {
+        //   console.log('Datos enviados a mongo', response);
+        // });
 
-        );
+          console.log('localstorage', typeof(localStorage.getItem('uid')));
+          console.log('localstorage', localStorage.getItem('uid'));
 
-        this.taskService.createUser(user,token).subscribe((response) => {
-          console.log('Datos enviados a mongo', response);
+
+        this.taskService.getEditoyById(localStorage.getItem('uid') ?? '',token).subscribe((response) => {
+          console.log('Consultando byId', response);
+
+
         });
+
+// Obtener el editor actual
+    this.taskService.getEditoyById(localStorage.getItem('uid') ?? '', token).subscribe((response) => {
+  // Si ya existe un editor con el mismo uid, no se crea uno nuevo
+       if (response.id_editor == localStorage.getItem('uid')){
+
+          console.log('Ya existe un editor con este uid');
+
+       }else if(response.id_editor == null){
+
+          const editor = new NewEditorModel(
+            localStorage.getItem('uid') ?? '',
+            localStorage.getItem('name') ?? '',
+
+          );
 
         this.taskService.createEditor(editor,token).subscribe((response) => {
-          console.log('Datos enviados a SQLServer', response);
-        });
+             console.log('Datos enviados a SQLServer', response);
+             });
+       }
+    });
 
       })
       .catch((error) => {

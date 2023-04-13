@@ -8,6 +8,10 @@ import { INewEditor } from '../Editor/interfaces/new-editor.interface';
 import { ContentModel } from '../Content/models/content.model';
 import { InewContent } from '../Content/interfaces/new-content.interface';
 import { IContent } from '../Content/interfaces/content.interface';
+import { PublicationModel } from '../Publication/models/publication.model';
+import { NewPublicationModel } from '../Publication/models/new-publication.model';
+import { NewEditorModel } from '../Editor/models/new-editor.model';
+import { NewContentModel } from '../Content/models/new-content.model';
 
 @Injectable({
   providedIn: 'root'
@@ -62,6 +66,50 @@ export class ServicesService {
     return this.httClient.get<ContentModel[]>('https://localhost:7267/api/Content');
 
   }
+
+  createPublication(publication: NewPublicationModel,token: string) : Observable<NewPublicationModel> {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}` // Se utiliza el token que se recibe como argumento
+      })
+    };
+
+    return this.httClient.post<NewPublicationModel>('https://localhost:7267/api/Publication', publication, httpOptions);
+
+  }
+
+  getEditoyById(id: string,token: string) : Observable<NewEditorModel> {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}` // Se utiliza el token que se recibe como argumento
+      })
+    };
+
+    return this.httClient.get<NewEditorModel>('https://localhost:7267/api/Editor/ByIdEditor?id='+ id, httpOptions);
+
+  }
+
+  updateArt(id: number, content: NewContentModel) : Observable<InewContent> {
+    return this.httClient.put<InewContent>('https://localhost:7267/api/Content?id='+ id, content);
+  }
+
+  getContentById(id: number,token: string) : Observable<NewContentModel> {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}` // Se utiliza el token que se recibe como argumento
+      })
+    };
+
+    return this.httClient.get<NewContentModel>('https://localhost:7267/api/Content/ByIdEditor?id='+ id, httpOptions);
+
+  }
+
 
 
 

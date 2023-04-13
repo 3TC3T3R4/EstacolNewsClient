@@ -1,8 +1,9 @@
 export interface IEditor{
 
-  id_user: string;
+  id_editor: string;
   complete_name: string;
-  phone: string;
+  //estate: boolean;
+  //phone: string;
 
 
 

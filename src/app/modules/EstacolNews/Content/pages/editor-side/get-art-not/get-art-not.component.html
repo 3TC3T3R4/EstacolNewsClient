@@ -1,7 +1,9 @@
-<div *ngFor="let data of listContent" class="col-3 mb-3">
+<button *ngFor="let data of listContent" (click)="selectedContent = data" class="col-3 mb-3">
   <div class="card border border-1 border-success">
     <div class="card-body">
       <p id="valorTitle">TITULO DE LA TAREA:</p>
+            <h6 class="card-title" id="valorTask">{{data.id_content}}</h6>
+            <br>
             <h6 class="card-title" id="valorTask">{{data.title}}</h6>
             <br>
             <label id="valorTitle">Keywords: </label>
@@ -21,9 +23,26 @@
             <h6 class="card-title" id="valorTask">{{data.description}}</h6>
             <br>
             <br>
+            <button type="button" class="btn btn-primary" (click)="PublicationSelect()">Publicar</button>
     </div>
   </div>
-</div>
+</button>
 <button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
-<button type="button" class="btn btn-primary" onclick="Publication()">Publicar</button>
 
+<!-- <DivComponent style={{display: "flex", flexWrap: "wrap", justifyContent: "space-between"}}>
+  <DivComponent style={{border: "1px solid #ccc", boxShadow: "0px 0px 5px #ccc", borderRadius: "5px", padding: "10px", width: "400px", marginBottom: "20px"}}>
+    <h2 style={{margin: "0", fontSize: "24px"}}>Noticia 1</h2>
+    <p style={{margin: "10px 0"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pretium purus non sapien pharetra, quis venenatis massa eleifend.</p>
+    <a href="#" style={{textDecoration: "none", color: "blue", fontWeight: "bold"}}>Leer más</a>
+  </DivComponent>
+  <DivComponent style={{border: "1px solid #ccc", boxShadow: "0px 0px 5px #ccc", borderRadius: "5px", padding: "10px", width: "400px", marginBottom: "20px"}}>
+    <h2 style={{margin: "0", fontSize: "24px"}}>Noticia 2</h2>
+    <p style={{margin: "10px 0"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pretium purus non sapien pharetra, quis venenatis massa eleifend.</p>
+    <a href="#" style={{textDecoration: "none", color: "blue", fontWeight: "bold"}}>Leer más</a>
+  </DivComponent>
+  <DivComponent style={{border: "1px solid #ccc", boxShadow: "0px 0px 5px #ccc", borderRadius: "5px", padding: "10px", width: "400px", marginBottom: "20px"}}>
+    <h2 style={{margin: "0", fontSize: "24px"}}>Noticia 3</h2>
+    <p style={{margin: "10px 0"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pretium purus non sapien pharetra, quis venenatis massa eleifend.</p>
+    <a href="#" style={{textDecoration: "none", color: "blue", fontWeight: "bold"}}>Leer más</a>
+  </DivComponent>
+</DivComponent> -->

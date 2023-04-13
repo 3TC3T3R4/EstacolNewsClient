@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ServicesService } from '../../../../User/services.service';
 import { IContent } from '../../../interfaces/content.interface';
 import { ContentModel } from '../../../models/content.model';
+import { CreatePublicationService } from '../../../services/create-publication.service';
+import { NewContentModel } from '../../../models/new-content.model';
 
 @Component({
   selector: 'sofkaU-get-art-not',
@@ -12,14 +14,28 @@ export class GetArtNotComponent {
 
   routergoBackMenu: string[];
   listContent: ContentModel[];
-  idUser: string;
+  selectedContent: ContentModel | undefined;
 
-  constructor(private readonly taskService: ServicesService) {
+
+  constructor(private readonly taskService: ServicesService, private readonly createP: CreatePublicationService) {
 
 
     this.routergoBackMenu = ['../'];
     this.listContent = new Array<ContentModel>();
-    this.idUser = localStorage.getItem('uid')?? '';
+
+
+  }
+
+  PublicationSelect() {
+
+    if (this.selectedContent && this.selectedContent.id_content) {
+      // La variable content no es undefined y tiene una propiedad id_content
+      this.createP.CreatePublication(this.selectedContent.id_content);
+    } else {
+      // La variable content es undefined o no tiene una propiedad id_content
+      console.log('El contenido seleccionado es inválido.');
+    }
+
 
 
   }
@@ -34,6 +50,7 @@ export class GetArtNotComponent {
   },
     complete: () => {
         console.log(this.listContent);
+
       }
     })
 
@@ -41,3 +58,4 @@ export class GetArtNotComponent {
 
 
 }
+
