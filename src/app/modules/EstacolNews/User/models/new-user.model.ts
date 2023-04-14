@@ -17,21 +17,21 @@ export class NewUserModel{
 
 
 
-  getData(): {id_fire: string, user: string, password: string}{
+  // getData(): {id_fire: string, user: string, password: string}{
 
-      {
+  //     {
 
-        return{
+  //       return{
 
-          id_fire: this.id_fire,
-          user: this.user,
-          password: this.password,
+  //         id_fire: this.id_fire,
+  //         user: this.user,
+  //         password: this.password,
 
-        }
+  //       }
 
-      }
+  //     }
 
 
-    }
+  //   }
 
   }

@@ -15,4 +15,17 @@ constructor(id_fire: string, user: string, password: string){
 
 
 
+  getData():{id_fire: string, user: string, password: string}{
+
+    return {
+      id_fire: this.id_fire,
+      user: this.user,
+      password: this.password
+    }
+  }
+
+
+
+
+
 }

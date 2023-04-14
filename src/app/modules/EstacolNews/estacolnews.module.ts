@@ -21,6 +21,7 @@ import { DeleteComponent } from './Content/pages/editor-side/delete-art-not/dele
 import { MainComponent } from './Content/pages/editor-side/main/main.component';
 import { DashboardComponent } from './Content/pages/dashboard/dashboard.component';
 import { LoginComponent } from './User/pages/login/login.component';
+import { LobbyComponent } from './User/pages/client-side/lobby/lobby/lobby.component';
 
 
 
@@ -37,6 +38,7 @@ import { LoginComponent } from './User/pages/login/login.component';
     PutAsigArtNotComponent,
     PutCollaboratorArtNotComponent,
     PostpublicComponent,
+    LobbyComponent,
 
   ],
   imports: [

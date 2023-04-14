@@ -12,6 +12,7 @@ import { PublicationModel } from '../Publication/models/publication.model';
 import { NewPublicationModel } from '../Publication/models/new-publication.model';
 import { NewEditorModel } from '../Editor/models/new-editor.model';
 import { NewContentModel } from '../Content/models/new-content.model';
+import { NewUserModel } from './models/new-user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -73,11 +74,6 @@ export class ServicesService {
 
   }
 
-
-
-
-
-
   createPublication(publication: NewPublicationModel,token: string) : Observable<NewPublicationModel> {
 
     const httpOptions = {
@@ -91,6 +87,18 @@ export class ServicesService {
 
   }
 
+  getUserById(id: string,token: string) : Observable<NewUserModel> {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}` // Se utiliza el token que se recibe como argumento
+      })
+    };
+
+    return this.httClient.get<NewUserModel>('https://localhost:7191/api/User/user/'+ id, httpOptions);
+
+  }
   getEditoyById(id: string,token: string) : Observable<NewEditorModel> {
 
     const httpOptions = {

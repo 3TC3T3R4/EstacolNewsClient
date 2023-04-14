@@ -1,0 +1,28 @@
+<div class="post" *ngFor="let post of listContent">
+  <div class="user">{{ post.title }}</div>
+  <div class="date">{{ post.keywords }}</div>
+  <div class="text">{{ post.description }}</div>
+  <div class="actions">
+    <button (click)="react(post.id_content, 'like')">
+      <i class="fa fa-thumbs-up"></i> {{ post.likes }}
+    </button>
+    <button (click)="react(post.id_content, 'love')">
+      <i class="fa fa-heart"></i>
+    </button>
+    <button (click)="react(post.id_content, 'haha')">
+      <i class="fa fa-laugh"></i>
+    </button>
+    <button (click)="react(post.id_content, 'wow')">
+      <i class="fa fa-surprise"></i>
+    </button>
+    <button (click)="react(post.id_content, 'sad')">
+      <i class="fa fa-sad-tear"></i>
+    </button>
+    <button (click)="react(post.id_content, 'angry')">
+      <i class="fa fa-angry"></i>
+    </button>
+    <button (click)="share(post.id_content)">
+      <i class="fa fa-share"></i> {{ post.likes }}
+    </button>
+  </div>
+</div>

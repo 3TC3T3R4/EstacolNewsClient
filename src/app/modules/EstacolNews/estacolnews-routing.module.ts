@@ -34,7 +34,10 @@ import { PutArtNotComponent } from './Content/pages/editor-side/put-art-not/put-
 import { DeleteComponent } from './Content/pages/editor-side/delete-art-not/delete.component';
 import { PutAsigArtNotComponent } from './Content/pages/editor-side/put-asig-art-not/put-asig-art-not.component';
 import { PutCollaboratorArtNotComponent } from './Content/pages/editor-side/put-collaborator-art-not/put-collaborator-art-not.component';
- const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['EstacolNews/login']);
+import { LobbyComponent } from './User/pages/client-side/lobby/lobby/lobby.component';
+
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['EstacolNews/login']);
 const redirectLoggedInToDashboard = () => redirectLoggedInTo(['EstacolNews/dashboard']);
 
 
@@ -60,7 +63,7 @@ const routes : Routes = [
     data:{authGuardPipe: redirectUnauthorizedToLogin}
   },
   {
-    path: 'EstacolNews/editor-side/main',
+    path: 'EstacolNews/editor-side/main', //proteger esta ruta
     component: MainComponent,
   },
   {
@@ -90,6 +93,10 @@ const routes : Routes = [
   {
     path: 'EstacolNews/editor-side/main/put-collaborator-art-not',
     component: PutCollaboratorArtNotComponent,
+  },
+  {
+    path: 'EstacolNews/User/client-side/lobby',
+    component: LobbyComponent,
   },
 
 
