@@ -15,24 +15,16 @@ import { CommonModule } from '@angular/common';
 export class PutArtNotComponent {
 
   routergoBackMenu: string[];
-  frmFormReactive : FormGroup;
- // idU: number;
-  listContent: NewContentModel[];
-  listContentTwo: ContentModel[];
+  listContent: ContentModel[];
   selectedContent: ContentModel | undefined;
-
-
+  frmFormReactive: FormGroup;
 
   constructor(private readonly task$: ServicesService,private ruta: ActivatedRoute,private router: Router) {
 
-   // this.idU = localStorage.getItem('uid')?? '';
-    this.listContent = new Array<NewContentModel>();
     this.routergoBackMenu = ['../'];
-    this.listContentTwo = new Array<ContentModel>();
+    this.listContent = new Array<ContentModel>();
+
     this.frmFormReactive = new FormGroup({
-
-      //id: new FormControl(null, [Validators.required]),
-
       title: new FormControl('', [
         Validators.required,
         Validators.minLength(5),
@@ -58,71 +50,66 @@ export class PutArtNotComponent {
 
   }
 
-
   ngOnInit(): void {
 
+
+    this.task$.GetAll().subscribe({
+    next: (data) => {(this.listContent = data)
+    },error: (err) => {
+    console.log(err),console.log(this.listContent)
+  },
+    complete: () => {
+        console.log(this.listContent);
+
+      }
+    })
+  }
+
+  UpdateSelect() {
+
+    console.log("Entro al Update select");
     if (this.selectedContent && this.selectedContent.id_content) {
-      // La variable content no es undefined y tiene una propiedad id_content
-      const numberUpp = this.selectedContent.id_content;
-      this.task$.GetAll().subscribe({
-        next: (data) => {(this.listContentTwo = data)
-          const token = localStorage.getItem('token') ?? ''
-            this.ruta.params.subscribe(params => {
-             this.task$.getContentByIdOtherCase(numberUpp,token).subscribe(
-              {
-               next: data => {this.frmFormReactive.setValue({
-                title: data.title,
-                kewywords: data.keywords,
-                finish_date: data.finish_date,
-                publication_date: data.publication_date,
-                program_date: data.program_date,
-                description: data.description})
-                console.log("VALORES SETEADOS",this.frmFormReactive)
-              },
-              error: (err) => {
-                console.log(err),console.log(this.listContent)
-              },
-              complete: () => {
-                console.log('complete')
-              }
-            })
+      const token = localStorage.getItem('token')?? '';
+      console.log("Entro al IF")
+
+      this.task$.getContentById(this.selectedContent.id_content,token).subscribe({
+
+        next: (data) => {
+          this.frmFormReactive.setValue({
+          title: data.title,
+          keywords: data.keywords,
+          finish_date: data.finish_date,
+          publication_date: data.publication_date,
+          program_date: data.program_date,
+          description: data.description
           })
-        },error: (err) => {
-          console.log(err),console.log(this.listContent)
-        },complete: () => {
-          console.log('complete')
-        }
-       })
+        },
+        error: (err) => {
+          console.log(err),
+          console.log(this.listContent)
+        },
+        complete: () => console.log("Complete getById")
 
+      })
+
+      this.task$.updateArt(this.selectedContent.id_content,this.frmFormReactive.getRawValue(),token).subscribe({
+        next: data => this.router.navigate(['EstacolNews/editor-side/main']),
+        error: (err) =>{
+          alert('No puedes mandar una noticia vacia o sin contenido')
+          this.router.navigate(['EstacolNews/editor-side/main'])
+        },
+        complete: () =>{ console.log("Complete update"),
+        alert('Articulo o noticia actualizado')
+      }
+
+      });
     } else {
-      // La variable content es undefined o no tiene una propiedad id_content
-      console.log('El contenido seleccionado es inválido. en on init');
+
+       console.log('El contenido seleccionado es inválido.');
+
+      alert('Selecciona primero la Noticia  despues  Actualizala');
     }
-
   }
 
 
-
-
-  sendData(): void {
-
-    if (this.selectedContent && this.selectedContent.id_content) {
-    const numberUp = this.selectedContent.id_content;
-    const token = localStorage.getItem('token') ?? ''
-    this.ruta.params.subscribe(params => {
-      this.task$
-        .updateArt(numberUp, this.frmFormReactive.getRawValue(),token)
-        .subscribe({
-          next: data => {
-            this.router.navigate(['EstacolNews/editor-side/main']);
-          },
-          error: err => console.log(err),
-        });
-    });
-
-  }else{
-    // La variable content es undefined o no tiene una propiedad id_content
-    console.log('El contenido seleccionado es inválido.');
-  }
-  }
 }

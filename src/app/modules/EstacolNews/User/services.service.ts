@@ -111,7 +111,7 @@ export class ServicesService {
         'Authorization': `Bearer ${token}` // Se utiliza el token que se recibe como argumento
       })
     };
-    return this.httClient.put<InewContent>('https://localhost:7267/api/Content?id='+ id, httpOptions);
+    return this.httClient.put<InewContent>('https://localhost:7267/api/Content?id='+ id, content, httpOptions);
   }
 
   getContentById(id: number,token: string) : Observable<NewContentModel> {
