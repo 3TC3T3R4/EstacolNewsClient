@@ -34,6 +34,20 @@
             <br>
             <br>
             <button type="button" class="btn btn-danger" (click)="likeSelect()">Like</button>
+            <share-buttons
+
+              [theme]="'material-dark'"
+              [include] = "[
+              'facebook',
+              'linkedin',
+              'whatsapp',
+              'email'
+                   ]"
+              [show]  = "9"
+              [url] = "'{{data.url}}'"
+              [autoSetMeta] = "false">
+
+</share-buttons>
             <!-- <button type="button" class="btn btn-primary" (click)="dislikeSelect()">Dislike</button>
             <button type="button" class="btn btn-primary" (click)="shareSelect()">Compartir</button>
             <button type="button" class="btn btn-primary">Saber mas...</button>
@@ -43,18 +57,5 @@
 </div>
 <button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
 
-<share-buttons
 
-  [theme]="'material-dark'"
-  [include] = "[
-  'facebook',
-  'linkedin',
-  'whatsapp',
-  'email'
-  ]"
-  [show]  = "9"
-  [url] = "'https://www.youtube.com/watch?v=ngSNGrx4TnA'"
-  [autoSetMeta] = "false">
-
-</share-buttons>
 
