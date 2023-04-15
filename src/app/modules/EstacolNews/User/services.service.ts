@@ -68,9 +68,9 @@ export class ServicesService {
 
   }
 
-  GetAllOtherCase(): Observable<ContentModel[]> {
+  GetAllOtherCase(): Observable<NewContentModel[]> {
 
-    return this.httClient.get<ContentModel[]>('https://localhost:7267/api/Content');
+    return this.httClient.get<NewContentModel[]>('https://localhost:7267/api/Content');
 
   }
 
@@ -161,6 +161,31 @@ export class ServicesService {
     return this.httClient.put<IContent[]>('https://localhost:7267/api/Content/' + id , httpOptions);
 
 
+  }
+
+
+  likeContent(id: number, token: string): Observable<IContent[]> {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}` // Se utiliza el token que se recibe como argumento
+      })
+    };
+
+    return this.httClient.put<IContent[]>('https://localhost:7267/api/Content/LikeContent?idContent='+ id , httpOptions);
+  }
+
+  shareContent(id: number, token: string): Observable<IContent[]> {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'X-Restli-Protocol-Version: 2.0.0',
+        'Authorization': `Bearer ${token}` // Se utiliza el token que se recibe como argumento
+      })
+    };
+
+    return this.httClient.put<IContent[]>('POST https://api.linkedin.com/v2/ugcPosts'+ id , httpOptions);
   }
 
 

@@ -21,7 +21,9 @@ import { DeleteComponent } from './Content/pages/editor-side/delete-art-not/dele
 import { MainComponent } from './Content/pages/editor-side/main/main.component';
 import { DashboardComponent } from './Content/pages/dashboard/dashboard.component';
 import { LoginComponent } from './User/pages/login/login.component';
-import { LobbyComponent } from './User/pages/client-side/lobby/lobby/lobby.component';
+import { LobbyComponent } from './User/pages/client-side/lobby/lobby.component';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 
 
 
@@ -45,7 +47,11 @@ import { LobbyComponent } from './User/pages/client-side/lobby/lobby/lobby.compo
     CommonModule,EstacolNewsRoutingModule,HttpClientModule,ReactiveFormsModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFireAuthModule, ShareButtonsModule.withConfig({
+      debug: true
+
+    }),
+    ShareIconsModule
   ]
 })
 export class EstacolNewsModule { }

@@ -45,17 +45,17 @@ export class TaskService {
         result.user?.getIdToken().then((token =>localStorage.setItem('token', token)));
         localStorage.setItem('prov', JSON.stringify(result.user?.providerId));
        const token = localStorage.getItem('token') ?? '';
-       const user = new UserModel(
+      //  const user = new UserModel(
 
-        localStorage.getItem('uid') ?? '',
-        localStorage.getItem('user') ?? '{}',
-        localStorage.getItem('prov') ?? ''
+      //   localStorage.getItem('uid') ?? '',
+      //   localStorage.getItem('user') ?? '{}',
+      //   localStorage.getItem('prov') ?? ''
 
 
-       );
-        this.taskService.createUser(user,token).subscribe((response) => {
-          console.log('Datos enviados a mongo', response);
-        });
+      //  );
+      //   this.taskService.createUser(user,token).subscribe((response) => {
+      //     console.log('Datos enviados a mongo', response);
+      //   });
        this.taskService.getUserById(localStorage.getItem('uid') ?? '', token).subscribe((response) => {
           // Si ya existe un user con el mismo uid, no se crea uno nuevo
                if (response.id_fire == localStorage.getItem('uid')){

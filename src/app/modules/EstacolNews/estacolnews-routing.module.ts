@@ -34,7 +34,7 @@ import { PutArtNotComponent } from './Content/pages/editor-side/put-art-not/put-
 import { DeleteComponent } from './Content/pages/editor-side/delete-art-not/delete.component';
 import { PutAsigArtNotComponent } from './Content/pages/editor-side/put-asig-art-not/put-asig-art-not.component';
 import { PutCollaboratorArtNotComponent } from './Content/pages/editor-side/put-collaborator-art-not/put-collaborator-art-not.component';
-import { LobbyComponent } from './User/pages/client-side/lobby/lobby/lobby.component';
+import { LobbyComponent } from './User/pages/client-side/lobby/lobby.component';
 
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['EstacolNews/login']);
