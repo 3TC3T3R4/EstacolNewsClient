@@ -28,7 +28,8 @@ import { ShareIconsModule } from 'ngx-sharebuttons/icons';
       debug: true
 
     }),
-    ShareIconsModule
+    ShareIconsModule,
+
   ],
   providers: [
     //ScreenTrackingService,UserTrackingService

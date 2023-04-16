@@ -107,7 +107,17 @@
             ],
             "scripts": [
               "./node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ]
+            ],
+            "architect": {
+              "build": {
+                "options": {
+                  "styles": [
+                    "src/styles.css",
+                    "src/dark-theme.scss"
+                  ],
+                }
+              }
+            }
           }
         },
         "deploy": {

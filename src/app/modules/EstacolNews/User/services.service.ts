@@ -188,6 +188,33 @@ export class ServicesService {
     return this.httClient.put<IContent[]>('POST https://api.linkedin.com/v2/ugcPosts'+ id , httpOptions);
   }
 
+  upateUrl(id:number, token:string): Observable<ContentModel> {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'X-Restli-Protocol-Version: 2.0.0',
+        'Authorization': `Bearer ${token}` // Se utiliza el token que se recibe como argumento
+      })
+    };
+
+    return this.httClient.put<ContentModel>('https://localhost:7267/api/Content/UpdateUrl?idContent= '+ id , httpOptions);
+  }
+
+  upateEstate(id:number, token:string): Observable<string> {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'X-Restli-Protocol-Version: 2.0.0',
+        'Authorization': `Bearer ${token}` // Se utiliza el token que se recibe como argumento
+      })
+    };
+
+    return this.httClient.put<string>('https://localhost:7267/api/Publication/UpdateEstate?idContent='+ id , httpOptions);
+  }
+
+
+
+
 
 
 

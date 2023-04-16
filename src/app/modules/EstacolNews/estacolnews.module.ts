@@ -24,6 +24,10 @@ import { LoginComponent } from './User/pages/login/login.component';
 import { LobbyComponent } from './User/pages/client-side/lobby/lobby.component';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+import { DarkModeComponent } from './User/pages/client-side/dark-mode/dark-mode.component';
+
+import { TrasformPipe } from './Content/pipes/trasformDatePipe/trasform.pipe';
+import { BoolPipe } from './Content/pipes/otherpipes/bool.pipe';
 
 
 
@@ -41,6 +45,9 @@ import { ShareIconsModule } from 'ngx-sharebuttons/icons';
     PutCollaboratorArtNotComponent,
     PostpublicComponent,
     LobbyComponent,
+    DarkModeComponent,
+    TrasformPipe,
+    BoolPipe,
 
   ],
   imports: [

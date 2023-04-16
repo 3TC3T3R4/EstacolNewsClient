@@ -10,10 +10,12 @@ import { ContentModel } from 'src/app/modules/EstacolNews/Content/models/content
 })
 export class LobbyComponent {
 
+  selectContent: ContentModel | undefined;
   routerrefresh: string[];
   routergoBackMenu: string[];
   listContent: ContentModel[];
   selectedContent: ContentModel | undefined;
+  selectContentUrl: string | undefined;
 
   constructor(private readonly taskService: ServicesService) {
 
@@ -23,6 +25,7 @@ export class LobbyComponent {
 
 
   }
+
 
   likeSelect() {
 
@@ -75,22 +78,36 @@ export class LobbyComponent {
   // }
 
 
-
-
-
   ngOnInit(): void {
 
-
+    const token = localStorage.getItem('token') || '';
     this.taskService.GetAll().subscribe({
-    next: (data) => {(this.listContent = data)
-    },error: (err) => {
-    console.log(err),console.log(this.listContent)
-  },
-    complete: () => {
+      next: (data) => {
+        this.listContent = data,
+        this.selectContentUrl
+      },
+      error: (err) => {
+        console.log(err),console.log(this.listContent)
+      },
+      complete: () => {
         console.log(this.listContent);
-
       }
     })
+     if (this.selectedContent && this.selectedContent.id_content) {
+      this.taskService.upateUrl(this.selectedContent.id_content,token).subscribe({
+        next: (data) => {
+        this.selectContentUrl = data.url
+      },
+        error: (err) => {
+          console.log(err)
+        },
+        complete: () => {}
+      })
+    }else{
+
+      console.log('El contenido seleccionado es inválido en la obtencion de la url.');
+
+    }
 
   }
 

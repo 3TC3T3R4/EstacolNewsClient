@@ -34,10 +34,17 @@ export class CreatePublicationService {
     )
 
     console.log('sendPublication', );
+    const token = localStorage.getItem('token') ?? '';
 
+    this.task$.upateEstate(_idContent,token).subscribe({
 
-      const token = localStorage.getItem('token') ?? '';
+      next: data => console.log("Update STATE"),
+      error: err => console.log(err),
+      complete: () => console.log('completo')
+    });
+
       this.task$.createPublication(objPublication,token).subscribe({
+
         next: data => this.router.navigate(['EstacolNews/editor-side/main']),
         error: err => console.log(err),
         complete: () => console.log('completo'),

@@ -51,3 +51,12 @@ button:disabled {
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
+.dark-mode {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+.dark-mode .my-component {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
