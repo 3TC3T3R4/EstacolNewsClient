@@ -8,7 +8,6 @@ import { INewEditor } from '../Editor/interfaces/new-editor.interface';
 import { ContentModel } from '../Content/models/content.model';
 import { InewContent } from '../Content/interfaces/new-content.interface';
 import { IContent } from '../Content/interfaces/content.interface';
-import { PublicationModel } from '../Publication/models/publication.model';
 import { NewPublicationModel } from '../Publication/models/new-publication.model';
 import { NewEditorModel } from '../Editor/models/new-editor.model';
 import { NewContentModel } from '../Content/models/new-content.model';
