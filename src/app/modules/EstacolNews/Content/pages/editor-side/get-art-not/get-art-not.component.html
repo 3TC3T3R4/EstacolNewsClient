@@ -1,0 +1,31 @@
+<button *ngFor="let data of listContent" (click)="selectedContent = data" class="col-3 mb-3">
+  <div class="card border border-1 border-success">
+    <div class="card-body">
+      <p id="valorTitle">TITULO DE LA TAREA:</p>
+            <h6 class="card-title" id="valorTask">{{data.id_content}}</h6>
+            <br>
+            <h6 class="card-title" id="valorTask">{{data.title}}</h6>
+            <br>
+            <label id="valorTitle">Keywords: </label>
+            <h6 class="card-title" id="valorTask">{{data.keywords}}</h6>
+            <br>
+            <label id="valorTitle">Finish_date: </label>
+            <h6 class="card-title" id="valorTask">{{data.finish_date}}</h6>
+            <br>
+            <label id="valorTitle">Publication_date: </label>
+            <h6 class="card-title" id="valorTask">{{data.publication_date }}</h6>
+            <br>
+            <label id="valorTitle">Program_date: </label>
+            <h6 class="card-title" id="valorTask">{{data.program_date}}</h6>
+            <br>
+            <br>
+            <label id="valorTitle">Description: </label>
+            <h6 class="card-title" id="valorTask">{{data.description}}</h6>
+            <br>
+            <br>
+            <button type="button" class="btn btn-primary" (click)="PublicationSelect()">Publicar</button>
+    </div>
+  </div>
+</button>
+<button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
+

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "estacolnews": {
+      "hosting": {
+        "EstacolNewsClientFinal": [
+          "estacolnews"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "estacolnews"
+  }
+}

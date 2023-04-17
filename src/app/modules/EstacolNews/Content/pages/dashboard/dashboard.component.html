@@ -1,0 +1,24 @@
+
+<button id="btnC" type="submit" (click)="logout()">
+  cerrarSesion
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+</button>
+
+<button *ngIf="isAdmin" id="btnA" type="submit" class="btn btn-success" [routerLink]="routerTask">
+  Comenzar a crear
+   <p></p>
+   <p></p>
+   <p></p>
+   <p></p>
+ </button>
+
+ <button id="btnA" type="submit" class="btn btn-success" [routerLink]="routerClient">
+ ¡Visualizar Lo Ultimo!!
+   <p></p>
+   <p></p>
+   <p></p>
+   <p></p>
+ </button>
