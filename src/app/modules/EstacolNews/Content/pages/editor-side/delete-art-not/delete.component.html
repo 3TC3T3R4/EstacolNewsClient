@@ -1,10 +1,9 @@
 <button *ngFor="let data of listContent" (click)="selectedContent = data" class="col-3 mb-3">
   <div class="card border border-1 border-success">
     <div class="card-body">
-      <p id="valorTitle">TITULO DE LA TAREA:</p>
-            <h6 class="card-title" id="valorTask">{{data.id_content}}</h6>
-            <br>
-            <h6 class="card-title" id="valorTask">{{data.title}}</h6>
+      <h6 class="card-title" id="valorTask">{{data.id_content}}</h6>
+      <br>
+        <h6 class="card-title" id="valorTask">{{data.title}}</h6>
             <br>
             <label id="valorTitle">Keywords: </label>
             <h6 class="card-title" id="valorTask">{{data.keywords}}</h6>

@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { ServicesService } from '../../../../User/services.service';
-import { IContent } from '../../../interfaces/content.interface';
 import { ContentModel } from '../../../models/content.model';
 import { CreatePublicationService } from '../../../services/create-publication.service';
-import { NewContentModel } from '../../../models/new-content.model';
+
 
 @Component({
   selector: 'sofkaU-get-art-not',

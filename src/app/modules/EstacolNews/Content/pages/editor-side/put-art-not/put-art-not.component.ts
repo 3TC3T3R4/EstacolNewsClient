@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 import { ServicesService } from '../../../../User/services.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
-import { NewContentModel } from '../../../models/new-content.model';
 import { ContentModel } from '../../../models/content.model';
-import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'sofkaU-put-art-not',
@@ -19,7 +17,7 @@ export class PutArtNotComponent {
   selectedContent: ContentModel | undefined;
   frmFormReactive: FormGroup;
 
-  constructor(private readonly task$: ServicesService,private ruta: ActivatedRoute,private router: Router) {
+  constructor(private readonly task$: ServicesService,private ruta: ActivatedRoute,private router: Router, private http: HttpClientModule) {
 
     this.routergoBackMenu = ['../'];
     this.listContent = new Array<ContentModel>();

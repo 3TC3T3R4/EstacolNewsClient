@@ -32,8 +32,6 @@ import { GetArtNotComponent } from './Content/pages/editor-side/get-art-not/get-
 import { PostpublicComponent } from './Content/pages/editor-side/post-public-art-not/postpublic.component';
 import { PutArtNotComponent } from './Content/pages/editor-side/put-art-not/put-art-not.component';
 import { DeleteComponent } from './Content/pages/editor-side/delete-art-not/delete.component';
-import { PutAsigArtNotComponent } from './Content/pages/editor-side/put-asig-art-not/put-asig-art-not.component';
-import { PutCollaboratorArtNotComponent } from './Content/pages/editor-side/put-collaborator-art-not/put-collaborator-art-not.component';
 import { LobbyComponent } from './User/pages/client-side/lobby/lobby.component';
 
 
@@ -85,14 +83,6 @@ const routes : Routes = [
   {
     path: 'EstacolNews/editor-side/main/delete-art-not',
     component: DeleteComponent,
-  },
-  {
-    path: 'EstacolNews/editor-side/main/put-asig-art-not',
-    component: PutAsigArtNotComponent,
-  },
-  {
-    path: 'EstacolNews/editor-side/main/put-collaborator-art-not',
-    component: PutCollaboratorArtNotComponent,
   },
   {
     path: 'EstacolNews/User/client-side/lobby',

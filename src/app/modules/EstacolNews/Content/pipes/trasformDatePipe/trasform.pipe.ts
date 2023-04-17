@@ -6,7 +6,7 @@ import * as moment from 'moment';
 export class TrasformPipe implements PipeTransform {
 
   transform(value: number ): void{
-    moment().format('MMMM Do YYYY, h:mm:ss a');
+
   }
 
 

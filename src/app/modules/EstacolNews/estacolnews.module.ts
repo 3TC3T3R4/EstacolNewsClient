@@ -12,8 +12,6 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PostpublicComponent } from './Content/pages/editor-side/post-public-art-not/postpublic.component';
-import { PutCollaboratorArtNotComponent } from './Content/pages/editor-side/put-collaborator-art-not/put-collaborator-art-not.component';
-import { PutAsigArtNotComponent } from './Content/pages/editor-side/put-asig-art-not/put-asig-art-not.component';
 import { PutArtNotComponent } from './Content/pages/editor-side/put-art-not/put-art-not.component';
 import { PostArtNotComponent } from './Content/pages/editor-side/post-art-not/post-art-not.component';
 import { GetArtNotComponent } from './Content/pages/editor-side/get-art-not/get-art-not.component';
@@ -25,9 +23,10 @@ import { LobbyComponent } from './User/pages/client-side/lobby/lobby.component';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { DarkModeComponent } from './User/pages/client-side/dark-mode/dark-mode.component';
-
 import { TrasformPipe } from './Content/pipes/trasformDatePipe/trasform.pipe';
 import { BoolPipe } from './Content/pipes/otherpipes/bool.pipe';
+import { RouterModule } from '@angular/router';
+import { InputComponentsComponent } from './Content/components/input-components/input-components.component';
 
 
 
@@ -41,13 +40,12 @@ import { BoolPipe } from './Content/pipes/otherpipes/bool.pipe';
     GetArtNotComponent,
     PostArtNotComponent,
     PutArtNotComponent,
-    PutAsigArtNotComponent,
-    PutCollaboratorArtNotComponent,
     PostpublicComponent,
     LobbyComponent,
     DarkModeComponent,
     TrasformPipe,
     BoolPipe,
+    InputComponentsComponent,
 
   ],
   imports: [
@@ -58,7 +56,8 @@ import { BoolPipe } from './Content/pipes/otherpipes/bool.pipe';
       debug: true
 
     }),
-    ShareIconsModule
+    ShareIconsModule,
+    RouterModule
   ]
 })
 export class EstacolNewsModule { }
