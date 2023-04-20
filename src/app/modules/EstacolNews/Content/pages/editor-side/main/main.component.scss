@@ -6,11 +6,12 @@
 	
 }
 body{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 100vh;
-	background: #17202A;
+	// display: flex;
+	// align-items: center;
+	// justify-content: center;
+	// min-height: 100vh;
+	// background: #17202A;
+	background-image: url(/src/assets/images/lofi-girl-lofi.gif);
 }
 #btnC{
 	text-decoration: none;
@@ -95,6 +96,7 @@ body{
 	transition: 0.5s;
 	transition-delay: 1s;
 	background: white;
+	color: black;
 }
 
 
@@ -182,6 +184,7 @@ body{
 	transition: 0.5s;
 	transition-delay: 1s;
 	background: white;
+	color: black;
 }
 
 
@@ -268,6 +271,7 @@ body{
 	transition: 0.5s;
 	transition-delay: 1s;
 	background: white;
+	color: black;
 }
 
 
@@ -354,6 +358,7 @@ body{
 	transition: 0.5s;
 	transition-delay: 1s;
 	background: white;
+	color: black;
 }
 
 
@@ -440,4 +445,21 @@ body{
 	transition: 0.5s;
 	transition-delay: 1s;
 	background: rgb(255, 0, 0);
+	color: black;
 }
+
+.imgSofka{
+
+
+padding: auto;
+margin: auto;
+width: 15%;
+height: 10%;
+border-radius: 50%;
+border: 5px solid #000000;
+box-shadow: black;
+
+
+}
+
+
