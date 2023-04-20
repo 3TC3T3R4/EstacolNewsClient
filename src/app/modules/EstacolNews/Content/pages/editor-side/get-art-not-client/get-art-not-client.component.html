@@ -1,0 +1,33 @@
+<div *ngFor="let data of listContent" id="notice" class="position-relative">
+    <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
+     <div class="card-body">
+             <label id="valorTitle">Title </label>
+             <h6 class="card-title" id="valorTask">{{data.title | uppercase}}</h6>
+             <br>
+             <label id="valorTitle">Keywords: </label>
+             <h6 class="card-title" id="valorTask">{{data.keywords}}</h6>
+             <br>
+             <label id="valorTitle">Finish_date: </label>
+             <h6 class="card-title" id="valorTask">{{data.finish_date}}</h6>
+             <br>
+             <label id="valorTitle">Publication_date: </label>
+             <h6 class="card-title" id="valorTask">{{data.publication_date }}</h6>
+             <br>
+             <label id="valorTitle">Program_date: </label>
+             <h6 class="card-title" id="valorTask">{{data.program_date}}</h6>
+             <br>
+             <label id="valorTitle">Description: </label>
+             <h6 class="card-title" id="valorTask">{{data.description}}</h6>
+             <br>
+     </div>
+   </div>
+  </div>
+ 
+ <button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="btnC">
+   VOLVER AL MENU PRINCIPAL
+   <p></p>
+   <p></p>
+   <p></p>
+   <p></p>
+ </button>
+ 

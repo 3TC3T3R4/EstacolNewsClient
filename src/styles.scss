@@ -1,32 +1,19 @@
 @import '../../EstacolNewsClient/node_modules/ngx-sharebuttons/themes/material.scss';
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import '~bootstrap/dist/css/bootstrap.css';
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 
-
-/* Application-wide Styles */
-h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
-}
-h2, h3 {
-  color: #444;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: lighter;
-}
 body {
 
   margin: 2em;
-  background: #1a2a6c;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #f9ab02, #b21f1f, #1a2a6c);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #ffb006, #a70f0f, #1a2a6c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #000428;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 
 }
-body, input[type="text"], button {
-  color: #333;
-  font-family: Cambria, Georgia, serif;
-}
 button {
-  background-color: #eee;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -46,17 +33,117 @@ button:disabled {
   color: #aaa;
   cursor: auto;
 }
+#btngog{
+
+text-align: center;
+padding: auto;
+margin: auto;
+
+}
 
 /* everywhere else */
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
-.dark-mode {
-  background-color: #1e1e1e;
-  color: #f5f5f5;
+
+
+.imgSofka{
+
+  width: 500px;
+  height: 500px;
+  //object-fit: cover;
+  //position: relative;
+
 }
 
-.dark-mode .my-component {
-  background-color: #1e1e1e;
-  color: #f5f5f5;
+
+
+.container{
+  padding: auto;
+
 }
+.panel-heading{
+  text-align: center;
+  margin-bottom: 10px;
+}
+#forgot{
+  min-width: 100px;
+  margin-left: auto;
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: none;
+}
+.form-inline label{
+  padding-left: 10px;
+  margin: 0;
+  cursor: pointer;
+}
+.btn.btn-primary{
+  margin-top: 20px;
+  border-radius: 15px;
+}
+.panel{
+  min-height: 380px;
+  box-shadow: 20px 20px 80px rgb(0, 0, 0);
+  border-radius: 12px;
+ 
+}
+.input-field{
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  color: #4343ff;
+}
+input[type='text'],
+input[type='password']{
+  border: none;
+  outline: none;
+  box-shadow: none;
+  width: 100%; 
+}
+.fa-eye-slash.btn{
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+img{
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+}
+a[target='_blank']{
+  position: relative;
+  transition: all 0.1s ease-in-out;
+}
+
+.bordert{
+  border-top: 1px solid #aaa;
+  position: relative;
+}
+.bordert:after{
+  content: "or connect with";
+  position: absolute;
+  top: -13px;
+  left: 33%;
+  background-color: #fff;
+  padding: 0px 8px;
+}
+// }
+// @media(max-width: 360px){
+//   #forgot{
+//       margin-left: 0;
+//       padding-top: 10px;
+//   }
+//   .container{
+//       margin: 30px 0;
+//   }
+//   .bordert:after{
+//       left: 25%;
+//   }
+// }

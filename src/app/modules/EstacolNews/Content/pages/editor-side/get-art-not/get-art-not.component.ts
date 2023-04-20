@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ServicesService } from '../../../../User/services.service';
 import { ContentModel } from '../../../models/content.model';
 import { CreatePublicationService } from '../../../services/create-publication.service';
+import { style } from '@angular/animations';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class GetArtNotComponent {
   routergoBackMenu: string[];
   listContent: ContentModel[];
   selectedContent: ContentModel | undefined;
-
+  butttonColor: any;
 
   constructor(private readonly taskService: ServicesService, private readonly createP: CreatePublicationService) {
 
@@ -25,14 +26,26 @@ export class GetArtNotComponent {
 
   }
 
+
+colorButton(event: any){
+
+  this.butttonColor = event.target;
+  this.butttonColor.style.backgroundColor = 'red';
+
+}
+
+
   PublicationSelect() {
 
     if (this.selectedContent && this.selectedContent.id_content) {
+      
+      
       // La variable content no es undefined y tiene una propiedad id_content
       this.createP.CreatePublication(this.selectedContent.id_content);
     } else {
       // La variable content es undefined o no tiene una propiedad id_content
       console.log('El contenido seleccionado es inválido.');
+      alert('No puedes publicar una noticia o articulo sin seleccionarlo');
     }
 
 
@@ -57,4 +70,6 @@ export class GetArtNotComponent {
 
 
 }
+
+
 

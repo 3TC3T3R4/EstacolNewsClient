@@ -67,9 +67,9 @@ export class ServicesService {
 
   }
 
-  GetAllOtherCase(): Observable<NewContentModel[]> {
+  GetAllOtherCase(): Observable<ContentModel[]> {
 
-    return this.httClient.get<NewContentModel[]>('https://localhost:7267/api/Content');
+    return this.httClient.get<ContentModel[]>('https://localhost:7267/api/Content/OnlyClients');
 
   }
 

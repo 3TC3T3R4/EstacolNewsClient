@@ -12,6 +12,8 @@ export class MainComponent {
 
   routerPostTask: string[];
   routerGetTaskById: string[];
+  routerGetTaskByIdClient: string[];
+
   routerPutTaskById: string[];
   routerDeleteTaskById: string[];
   routerdashboard: string[];
@@ -25,7 +27,7 @@ export class MainComponent {
     this.routerDeleteTaskById = ['delete-art-not'];
     this.routerdashboard = [''];
     this.routerPostTaskPublic = ['post-public-art-not'];
-
+    this.routerGetTaskByIdClient = ['get-art-not-client'];
   }
 
 

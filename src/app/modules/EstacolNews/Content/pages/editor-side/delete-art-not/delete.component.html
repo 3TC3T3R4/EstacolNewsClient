@@ -1,30 +1,41 @@
-<button *ngFor="let data of listContent" (click)="selectedContent = data" class="col-3 mb-3">
-  <div class="card border border-1 border-success">
-    <div class="card-body">
-      <h6 class="card-title" id="valorTask">{{data.id_content}}</h6>
-      <br>
-        <h6 class="card-title" id="valorTask">{{data.title}}</h6>
-            <br>
-            <label id="valorTitle">Keywords: </label>
-            <h6 class="card-title" id="valorTask">{{data.keywords}}</h6>
-            <br>
-            <label id="valorTitle">Finish_date: </label>
-            <h6 class="card-title" id="valorTask">{{data.finish_date}}</h6>
-            <br>
-            <label id="valorTitle">Publication_date: </label>
-            <h6 class="card-title" id="valorTask">{{data.publication_date}}</h6>
-            <br>
-            <label id="valorTitle">Program_date: </label>
-            <h6 class="card-title" id="valorTask">{{data.program_date}}</h6>
-            <br>
-            <br>
-            <label id="valorTitle">Description: </label>
-            <h6 class="card-title" id="valorTask">{{data.description}}</h6>
-            <br>
-            <br>
-            <button type="button" class="btn btn-primary" (click)="DeleteSelect()">Eliminar</button>
-    </div>
-  </div>
+<button *ngFor="let data of listContent" (click)="selectedContent = data" (dblclick)="colorButton($event)" id="notice">
+  <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
+   <div class="card-body">
+           <label id="valorTitle">Title </label>
+           <h6 class="card-title" id="valorTask">{{data.title | uppercase}}</h6>
+           <br>
+           <label id="valorTitle">Keywords: </label>
+           <h6 class="card-title" id="valorTask">{{data.keywords}}</h6>
+           <br>
+           <label id="valorTitle">Finish_date: </label>
+           <h6 class="card-title" id="valorTask">{{data.finish_date}}</h6>
+           <br>
+           <label id="valorTitle">Publication_date: </label>
+           <h6 class="card-title" id="valorTask">{{data.publication_date }}</h6>
+           <br>
+           <label id="valorTitle">Program_date: </label>
+           <h6 class="card-title" id="valorTask">{{data.program_date}}</h6>
+           <br>
+           <br>
+           <label id="valorTitle">Description: </label>
+           <h6 class="card-title" id="valorTask">{{data.description}}</h6>
+           <br>
+           <br>
+   </div>
+   <button type="button" id="btnP" (click)="DeleteSelect()">Eliminar
+     <p></p>
+     <p></p>
+     <p></p>
+     <p></p>
+   </button>
+ </div>
 </button>
-<button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
+<br>
 
+<button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="btnC">
+ VOLVER AL MENU PRINCIPAL
+ <p></p>
+ <p></p>
+ <p></p>
+ <p></p>
+</button>

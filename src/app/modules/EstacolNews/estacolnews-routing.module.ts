@@ -24,6 +24,7 @@ import{
 
 
 } from '@angular/fire/compat/auth-guard';
+import { GetArtNotClientComponent } from './Content/pages/editor-side/get-art-not-client/get-art-not-client.component';
 
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['EstacolNews/login']);
@@ -74,6 +75,10 @@ const routes : Routes = [
   {
     path: 'EstacolNews/editor-side/main/delete-art-not',
     component: DeleteComponent,
+  },
+  {
+    path: 'EstacolNews/editor-side/main/get-art-not-client',
+    component: GetArtNotClientComponent,
   },
   {
     path: 'EstacolNews/User/client-side/lobby',

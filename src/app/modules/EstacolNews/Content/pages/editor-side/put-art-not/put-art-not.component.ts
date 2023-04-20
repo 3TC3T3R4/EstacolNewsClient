@@ -16,7 +16,7 @@ export class PutArtNotComponent {
   listContent: ContentModel[];
   selectedContent: ContentModel | undefined;
   frmFormReactive: FormGroup;
-
+  butttonColor: any;
   constructor(private readonly task$: ServicesService,private ruta: ActivatedRoute,private router: Router, private http: HttpClientModule) {
 
     this.routergoBackMenu = ['../'];
@@ -47,6 +47,17 @@ export class PutArtNotComponent {
     });
 
   }
+
+
+  colorButton(event: any){
+
+    this.butttonColor = event.target;
+    this.butttonColor.style.backgroundColor = 'red';
+  
+  }
+  
+
+
 
   ngOnInit(): void {
 

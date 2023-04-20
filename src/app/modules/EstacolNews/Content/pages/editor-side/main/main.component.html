@@ -1,36 +1,41 @@
-
 <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
 
-  <button type="button" class="btn btn-info" [routerLink]="routerGetTaskById">
-    MIS  ARTICULOS O NOTICIAS
+  <button id="btnA" type="button" [routerLink]="routerGetTaskById">
+    MIS  ARTICULOS O NOTICIAS CREADAS
 <p></p>
 <p></p>
 <p></p>
 <p></p>
   </button>
 
-  <button type="button" [routerLink]="routerPostTask" >
-
-
-    CREAR ARTICULO O NOTICIA
+  <button id="btnA" type="button" [routerLink]="routerGetTaskByIdClient">
+    ¡PUBLICACIONES!
 <p></p>
 <p></p>
 <p></p>
 <p></p>
   </button>
 
-  <button type="button" class="btn btn-info" [routerLink]="routerPutTaskById" >
-
-
-    EDITAR ARTICULO Ó NOTICIA
+  <button id="btnC" type="button" [routerLink]="routerPostTask" >
+  CREAR ARTICULO O NOTICIA
 <p></p>
 <p></p>
 <p></p>
 <p></p>
   </button>
 
-  <button type="button" class="btn btn-info" [routerLink]="routerDeleteTaskById">
-    ELIMINAR ARTICULO Ó NOTICIA
+  <button id="btnV" type="button" [routerLink]="routerPutTaskById" >
+
+
+    EDITAR ARTICULO O NOTICIA
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+  </button>
+
+  <button id="btnE" type="button"[routerLink]="routerDeleteTaskById">
+    ELIMINAR ARTICULO O NOTICIA
 <p></p>
 <p></p>
 <p></p>
@@ -38,7 +43,7 @@
   </button>
 
 
-  <button type="button" class="btn btn-danger"  [routerLink]="routerdashboard">
+  <button id="btnB" type="button"  [routerLink]="routerdashboard">
     GO BACK
     <p></p>
     <p></p>
@@ -48,8 +53,6 @@
 
 
 </div>
-
-
 
 
 
