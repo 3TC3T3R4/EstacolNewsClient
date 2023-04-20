@@ -7,10 +7,10 @@
 body {
 
   margin: 2em;
-  background: #000428;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: #355C7D;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #C06C84, #6C5B7B, #004785);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #C06C84, #6C5B7B, #004582); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
 
 }
 button {
@@ -106,7 +106,7 @@ img{
   width: 40px;
   height: 40px;
   object-fit: cover;
-  border-radius: 50%;
+ border-radius: 50%;
   position: relative;
 }
 a[target='_blank']{

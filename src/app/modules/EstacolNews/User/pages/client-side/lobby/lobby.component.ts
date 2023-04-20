@@ -16,7 +16,7 @@ export class LobbyComponent {
   listContent: ContentModel[];
   selectedContent: ContentModel | undefined;
   selectContentUrl: string | undefined;
-
+  colorButtton: any ;
   constructor(private readonly taskService: ServicesService) {
 
     this.routerrefresh = ['../lobby'];
@@ -51,40 +51,65 @@ export class LobbyComponent {
   }
 
 
-  // dislikeSelect() {
+  colorButton(event: any) {
+ 
+    this.colorButtton = event.target;
+    this.colorButtton.style.backgroundColor = 'red';
+    //console.log("Valor del boton",event.);
+    
 
-  //   if (this.selectedContent && this.selectedContent.id_content) {
-  //     // La variable content no es undefined y tiene una propiedad id_content
-  //   } else {
-  //     // La variable content es undefined o no tiene una propiedad id_content
-  //     console.log('El contenido seleccionado es inválido.');
-  //   }
+  }
+
+  UrlConfig() {
+
+    const token = localStorage.getItem('token') || '';
+
+    if (this.selectedContent && this.selectedContent.id_content) {
+
+      this.taskService.getContentByIdOtherCase(this.selectedContent.id_content,token).subscribe({
+        next: (data) => {
+          this.taskService.upateUrl(data.id_content,token).subscribe({
+
+          })
+          this.selectContentUrl = data.url
+      },
+        error: (err) => {
+          console.log(err)
+        },
+        complete: () => {}
+      })
+
+
+    }else{
+
+      
+      alert('Debes seleccionar primero la noticia que quieres compartir');
+    
+    }
 
 
 
-  // }
 
-  // shareSelect() {
-
-  //   if (this.selectedContent && this.selectedContent.id_content) {
-  //     // La variable content no es undefined y tiene una propiedad id_content
-  //   } else {
-  //     // La variable content es undefined o no tiene una propiedad id_content
-  //     console.log('El contenido seleccionado es inválido.');
-  //   }
+  }
 
 
 
-  // }
+
+
+
+
+
+
 
 
   ngOnInit(): void {
 
     const token = localStorage.getItem('token') || '';
-    this.taskService.GetAll().subscribe({
+    this.taskService.GetAllOtherCase().subscribe({
       next: (data) => {
-        this.listContent = data,
-        this.selectContentUrl
+        this.listContent = data
+        // this.selectContentUrl = data[0].url
+         //console.log("VALOR DE LA URL",this.selectContentUrl)
       },
       error: (err) => {
         console.log(err),console.log(this.listContent)
@@ -93,21 +118,7 @@ export class LobbyComponent {
         console.log(this.listContent);
       }
     })
-     if (this.selectedContent && this.selectedContent.id_content) {
-      this.taskService.upateUrl(this.selectedContent.id_content,token).subscribe({
-        next: (data) => {
-        this.selectContentUrl = data.url
-      },
-        error: (err) => {
-          console.log(err)
-        },
-        complete: () => {}
-      })
-    }else{
-
-      console.log('El contenido seleccionado es inválido en la obtencion de la url.');
-
-    }
+    
 
   }
 
