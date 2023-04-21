@@ -56,6 +56,8 @@ export class LobbyComponent {
     this.colorButtton = event.target;
     this.colorButtton.style.backgroundColor = 'red';
     //console.log("Valor del boton",event.);
+
+
     
 
   }
@@ -66,20 +68,8 @@ export class LobbyComponent {
 
     if (this.selectedContent && this.selectedContent.id_content) {
 
-      this.taskService.getContentByIdOtherCase(this.selectedContent.id_content,token).subscribe({
-        next: (data) => {
-          this.taskService.upateUrl(data.id_content,token).subscribe({
-
-          })
-          this.selectContentUrl = data.url
-      },
-        error: (err) => {
-          console.log(err)
-        },
-        complete: () => {}
-      })
-
-
+          this.taskService.upateUrl(this.selectedContent.id_content,token).subscribe({})
+        
     }else{
 
       
@@ -108,8 +98,10 @@ export class LobbyComponent {
     this.taskService.GetAllOtherCase().subscribe({
       next: (data) => {
         this.listContent = data
-        // this.selectContentUrl = data[0].url
-         //console.log("VALOR DE LA URL",this.selectContentUrl)
+
+        if (this.selectedContent && this.selectedContent.id_content) {
+           this.selectContentUrl = data[this.selectedContent.id_content].url
+          }
       },
       error: (err) => {
         console.log(err),console.log(this.listContent)
