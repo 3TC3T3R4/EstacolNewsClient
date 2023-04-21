@@ -55,9 +55,9 @@ export class LobbyComponent {
  
     this.colorButtton = event.target;
     this.colorButtton.style.backgroundColor = 'red';
-    //console.log("Valor del boton",event.);
+    //console.log("Valor del boton event",event.target.id_content);
 
-
+    //this.finalStep(this.selectContent?.id_content, token);
     
 
   }
@@ -68,7 +68,38 @@ export class LobbyComponent {
 
     if (this.selectedContent && this.selectedContent.id_content) {
 
-          this.taskService.upateUrl(this.selectedContent.id_content,token).subscribe({})
+          this.taskService.upateUrl(this.selectedContent.id_content,token).subscribe({
+            
+            next: (data) => {
+              console.log("Se actualizo URl en la BD");
+              
+            },
+            error: (err) => {
+              console.log("Entro al error"),
+              this.finalStep(this.selectContent?.id_content, token);
+            },
+            complete: () => {
+              console.log('complete');
+            }
+
+
+          })
+          
+          // this.taskService.getContentByIdOtherCase(this.selectedContent.id_content,token).subscribe({
+          //   next: (data) => {
+          //     this.selectContentUrl = data.url
+          //     console.log("Se asigno valor al bton URL");
+          //     //console.log("Valor de la URL final es>",this.selectContentUrl);
+          //   },
+          //   error: (err) => {
+          //     console.log("Entro al error");
+          //   },
+          //   complete: () => {
+          //     console.log('complete');
+          //   }
+
+          // })
+
         
     }else{
 
@@ -84,7 +115,23 @@ export class LobbyComponent {
 
 
 
+finalStep(number: any, token: any) {
 
+  this.taskService.getContentByIdOtherCase(number,token).subscribe({
+      next: (data) => {
+        this.selectContentUrl = data.url
+        console.log("Se asigno valor al bton URL",this.selectContentUrl);
+      },
+      error: (err) => {
+        console.log("Entro al error final step");
+      },
+      complete: () => {
+        console.log('complete');
+      }
+
+    })
+
+}
 
 
 
@@ -104,7 +151,8 @@ export class LobbyComponent {
           }
       },
       error: (err) => {
-        console.log(err),console.log(this.listContent)
+        console.log(err),
+        console.log("Sin Url Asignada")
       },
       complete: () => {
         console.log(this.listContent);

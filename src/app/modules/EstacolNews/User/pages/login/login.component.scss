@@ -29,8 +29,37 @@ height: 100%;
   color: #fff !important;
   border: 1px solid #ccc;
 }
-#form2Example3{
+.container{
 
-  color: white;
 
+margin-top: 5rem;
+
+
+
+
+}
+
+.panel{
+
+  background-color: rgb(255, 255, 255);
+  margin-top: 3rem;
+  text-align: center;
+ 
+}
+
+
+.imgSofka{
+
+width: 10%;
+height: 10%;
+
+
+}
+
+.translate-middle-x{
+
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 10%;
+  left: 130%;
 }
