@@ -13,7 +13,7 @@ export class DeleteComponent {
   routergoBackMenu: string[];
   listContent: ContentModel[];
   selectedContent: ContentModel | undefined;
-
+  butttonColor: any;
   constructor(private router: Router,private readonly taskService: ServicesService) {
 
 
@@ -22,7 +22,17 @@ export class DeleteComponent {
 
 
   }
-//this.router.navigate(['EstacolNews/editor-side/main'])
+
+
+colorButton(event: any){
+
+  this.butttonColor = event.target;
+  this.butttonColor.style.backgroundColor = 'red';
+
+}
+
+
+
 
   DeleteSelect() {
 

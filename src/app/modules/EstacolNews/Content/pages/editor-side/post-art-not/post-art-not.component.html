@@ -2,12 +2,12 @@
   <div class="text-center">
 
     <form id="frmFormReactive" (ngSubmit)="sendData()" [formGroup]="frmFormReactive"
-      class="form-control mt-3 p-3 border-3 border-info text-start">
+      class="text-bg-dark p-3 border-3 border-primary text-start">
 
       <div class="mb-3 row">
         <label for="Título" class="col-sm-2 col-form-label">Título</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="Título" placeholder="Tarea importante"  formControlName="title"
+          <input type="text" class="form-control" id="Título" placeholder="LOTERIA CAE EN COLOMBIA"  formControlName="title"
             name="title" required>
             <div id="altoMensaje" *ngIf="frmFormReactive.get('title')?.hasError('required')
          && frmFormReactive.get('title')?.touched">Campo requerido, ingresar por favor</div>
@@ -71,10 +71,19 @@
         </div>
       </div>
 
-      <button type="submit" form="frmFormReactive" [disabled]="frmFormReactive.invalid"
-      class="btn btn-primary btn-lg shadow bottom-0 end-0 float-end w-auto">Crear Noticia
+      <button id="btnC" type="submit" form="frmFormReactive" [disabled]="frmFormReactive.invalid">Crear Noticia
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
       </button>
-              <button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
+
+              <button type="button" id="btnB"  [routerLink]="routergoBackMenu" >VOLVER AL MENU PRINCIPAL
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+              </button>
             </form>
       </div>
 

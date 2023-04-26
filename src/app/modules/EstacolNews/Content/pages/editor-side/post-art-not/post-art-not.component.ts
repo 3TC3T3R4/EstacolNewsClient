@@ -53,6 +53,13 @@ export class PostArtNotComponent {
 
   sendData(): void {
 
+    if (this.frmFormReactive.invalid) {
+
+      alert('No puedes crear un articulo vacio, llenar todos los campos');
+
+    }
+
+
     console.log('sendData',this.frmFormReactive);
     const token = localStorage.getItem('token') ?? '';
     this.task$.createContent(this.frmFormReactive.getRawValue(),token).subscribe({

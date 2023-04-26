@@ -27,6 +27,7 @@ import { TrasformPipe } from './Content/pipes/trasformDatePipe/trasform.pipe';
 import { BoolPipe } from './Content/pipes/otherpipes/bool.pipe';
 import { RouterModule } from '@angular/router';
 import { InputComponentsComponent } from './Content/components/input-components/input-components.component';
+import { GetArtNotClientComponent } from './Content/pages/editor-side/get-art-not-client/get-art-not-client.component';
 
 
 
@@ -46,6 +47,7 @@ import { InputComponentsComponent } from './Content/components/input-components/
     TrasformPipe,
     BoolPipe,
     InputComponentsComponent,
+    GetArtNotClientComponent,
 
   ],
   imports: [

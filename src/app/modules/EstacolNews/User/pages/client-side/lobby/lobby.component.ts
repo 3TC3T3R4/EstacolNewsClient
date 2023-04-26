@@ -16,7 +16,7 @@ export class LobbyComponent {
   listContent: ContentModel[];
   selectedContent: ContentModel | undefined;
   selectContentUrl: string | undefined;
-
+  colorButtton: any ;
   constructor(private readonly taskService: ServicesService) {
 
     this.routerrefresh = ['../lobby'];
@@ -51,63 +51,114 @@ export class LobbyComponent {
   }
 
 
-  // dislikeSelect() {
+  colorButton(event: any) {
+ 
+    this.colorButtton = event.target;
+    this.colorButtton.style.backgroundColor = 'red';
+    //console.log("Valor del boton event",event.target.id_content);
 
-  //   if (this.selectedContent && this.selectedContent.id_content) {
-  //     // La variable content no es undefined y tiene una propiedad id_content
-  //   } else {
-  //     // La variable content es undefined o no tiene una propiedad id_content
-  //     console.log('El contenido seleccionado es inválido.');
-  //   }
+    //this.finalStep(this.selectContent?.id_content, token);
+    
+
+  }
+
+  UrlConfig() {
+
+    const token = localStorage.getItem('token') || '';
+
+    if (this.selectedContent && this.selectedContent.id_content) {
+
+          this.taskService.upateUrl(this.selectedContent.id_content,token).subscribe({
+            
+            next: (data) => {
+              console.log("Se actualizo URl en la BD");
+              
+            },
+            error: (err) => {
+              console.log("Entro al error"),
+              this.finalStep(this.selectContent?.id_content, token);
+            },
+            complete: () => {
+              console.log('complete');
+            }
+
+
+          })
+          
+          // this.taskService.getContentByIdOtherCase(this.selectedContent.id_content,token).subscribe({
+          //   next: (data) => {
+          //     this.selectContentUrl = data.url
+          //     console.log("Se asigno valor al bton URL");
+          //     //console.log("Valor de la URL final es>",this.selectContentUrl);
+          //   },
+          //   error: (err) => {
+          //     console.log("Entro al error");
+          //   },
+          //   complete: () => {
+          //     console.log('complete');
+          //   }
+
+          // })
+
+        
+    }else{
+
+      
+      alert('Debes seleccionar primero la noticia que quieres compartir');
+    
+    }
 
 
 
-  // }
 
-  // shareSelect() {
-
-  //   if (this.selectedContent && this.selectedContent.id_content) {
-  //     // La variable content no es undefined y tiene una propiedad id_content
-  //   } else {
-  //     // La variable content es undefined o no tiene una propiedad id_content
-  //     console.log('El contenido seleccionado es inválido.');
-  //   }
+  }
 
 
 
-  // }
+finalStep(number: any, token: any) {
+
+  this.taskService.getContentByIdOtherCase(number,token).subscribe({
+      next: (data) => {
+        this.selectContentUrl = data.url
+        console.log("Se asigno valor al bton URL",this.selectContentUrl);
+      },
+      error: (err) => {
+        console.log("Entro al error final step");
+      },
+      complete: () => {
+        console.log('complete');
+      }
+
+    })
+
+}
+
+
+
+
+
 
 
   ngOnInit(): void {
 
     const token = localStorage.getItem('token') || '';
-    this.taskService.GetAll().subscribe({
+    this.taskService.GetAllOtherCase().subscribe({
       next: (data) => {
-        this.listContent = data,
-        this.selectContentUrl
+        this.listContent = data
+
+        if (this.selectedContent && this.selectedContent.id_content) {
+           this.selectContentUrl = data[this.selectedContent.id_content].url
+          }
       },
       error: (err) => {
-        console.log(err),console.log(this.listContent)
+        console.log(err),
+        console.log("Sin Url Asignada")
       },
       complete: () => {
         console.log(this.listContent);
       }
     })
-     if (this.selectedContent && this.selectedContent.id_content) {
-      this.taskService.upateUrl(this.selectedContent.id_content,token).subscribe({
-        next: (data) => {
-        this.selectContentUrl = data.url
-      },
-        error: (err) => {
-          console.log(err)
-        },
-        complete: () => {}
-      })
-    }else{
-
-      console.log('El contenido seleccionado es inválido en la obtencion de la url.');
-
-    }
+    
 
   }
 

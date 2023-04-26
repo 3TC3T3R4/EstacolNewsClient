@@ -1,24 +1,37 @@
+<div class="btn-group-vertical" role="group" aria-label="Vertical button group" id="containerButtons">
+  
+  <button *ngIf="isAdmin" id="btnA" type="submit" [routerLink]="routerTask">
+    Comenzar a crear
+     <p></p>
+     <p></p>
+     <p></p>
+     <p></p>
+   </button>
+  
+  <button id="btnV" type="submit" [routerLink]="routerClient">
+    ¡Visualizar Lo Ultimo!!
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+    </button>
+  
+  
+  <button id="btnC" type="submit" (click)="logout()">
+    cerrar-Sesion
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+  </button>
+  
+</div>
 
-<button id="btnC" type="submit" (click)="logout()">
-  cerrarSesion
-  <p></p>
-  <p></p>
-  <p></p>
-  <p></p>
-</button>
+<img src="../../../../../../../assets/images/lofiboy.gif"
+class="imgSofka" alt="Sample image">
+<img src="../../../../../../../assets/images/giphy.gif"
+class="imgSofkaT" alt="Sample image">
 
-<button *ngIf="isAdmin" id="btnA" type="submit" class="btn btn-success" [routerLink]="routerTask">
-  Comenzar a crear
-   <p></p>
-   <p></p>
-   <p></p>
-   <p></p>
- </button>
 
- <button id="btnA" type="submit" class="btn btn-success" [routerLink]="routerClient">
- ¡Visualizar Lo Ultimo!!
-   <p></p>
-   <p></p>
-   <p></p>
-   <p></p>
- </button>
+ <img src="../../../../../../assets/images/giphy (2).gif"
+ class="imgSofkaC" alt="Sample image">
